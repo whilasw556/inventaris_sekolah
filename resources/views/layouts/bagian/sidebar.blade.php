@@ -18,7 +18,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="admin/buku">
+                <a class="nav-link" href="">
                     <i class="fas fa-fw fa-cubes"></i>
                     <span>Barang - Barang</span></a>
             </li>
@@ -33,7 +33,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
-                <a class="nav-link" href="admin/buku">
+                <a class="nav-link" href="{{ route('barangmasuk.index') }}">
                     <i class="fas fa-fw fa-download"></i>
                     <span>Barang Masuk</span></a>
             </li>

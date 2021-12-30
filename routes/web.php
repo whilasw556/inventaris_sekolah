@@ -36,13 +36,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     });
 // });
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
-    Route::get('buku', function(){
-        return view ('buku.index');
+    Route::get('barang', function(){
+        return view ('barang.index');
     })->middleware(['role:admin|pengguna']);
 
-    Route::get('pengarang', function(){
-        return view ('pengarang.index');
+    Route::get('barangmasuk', function(){
+        return view ('barangmasuk.index');
     })->middleware(['role:admin']);
+    Route::resource ('barangmasuk', BarangMasukController::class);
 });
 
 // // hanya untuk pengguna
