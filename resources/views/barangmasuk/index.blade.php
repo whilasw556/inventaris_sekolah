@@ -60,7 +60,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Data Barang Masuk
-                            <a href="{{ route('barangmasuk.create')}}" class="btn btn-primary float-right">Tambah</a>
+                            <a href="{{ route('barangmasuk.create')}}" class="btn btn-primary float-right">Tambah Barang Masuk</a>
 
                         </div>
                         <!-- /.panel-heading -->
@@ -81,7 +81,7 @@
                                         @foreach($barang_masuk as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->nama_masuk}}</td>
+                                            <td>{{ $data->nama_barang}}</td>
                                             <td>{{ $data->jumlah }}</td>
                                             <td>{{ $data->tgl_masuk }}</td>
                                             <td>
@@ -91,7 +91,7 @@
 
 
                                             <a href="{{route('barangmasuk.edit', $data->id)}}" class="btn btn-success float-right">Ubah</a>
-                                            <a href="{{route('barangmasuk.show', $data->id)}}" class="btn btn-warning float-right">Show</a>
+                                            <a href="{{route('barangmasuk.show', $data->id)}}" class="btn btn-warning float-right">Tampilkan</a>
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
                                                 </form>
                                             </td>

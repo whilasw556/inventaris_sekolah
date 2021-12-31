@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <label>Tanggal</label>
-                                    <input type="text" class="form-control" name="tgl_masuk">
+                                    <input type="date" class="form-control" name="tgl_masuk">
                                 </div>
                                        <div class="panel-body">
                                            <button type="reset" class="btn btn-warning">Reset</button>

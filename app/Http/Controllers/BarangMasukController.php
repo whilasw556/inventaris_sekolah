@@ -14,8 +14,8 @@ class BarangMasukController extends Controller
      */
     public function index()
     {
-        $barangmasuk = barang_masuk::All();
-        return view('barangmasuk.index', compact('barangmasuk'));
+        $barang_masuk = barang_masuk::All();
+        return view('barangmasuk.index', compact('barang_masuk'));
     }
 
     /**
@@ -25,8 +25,8 @@ class BarangMasukController extends Controller
      */
     public function create()
     {
-        $barangmasuk = barang_masuk::all();
-        return view('barangmasuk.create', compact('barangmasuk'));
+        $barang_masuk = barang_masuk::all();
+        return view('barangmasuk.create', compact('barang_masuk'));
     }
 
     /**
@@ -43,11 +43,11 @@ class BarangMasukController extends Controller
             'tgl_masuk' => 'required',
         ]);
 
-        $barangmasuk = new barang_masuk;
-        $barangmasuk->nama_barang = $request->nama_barang;
-        $barangmasuk->jumlah = $request->jumlah;
-        $barangmasuk->tgl_masuk = $request->tgl_masuk;
-        $barangmasuk->save();
+        $barang_masuk = new barang_masuk;
+        $barang_masuk->nama_barang = $request->nama_barang;
+        $barang_masuk->jumlah = $request->jumlah;
+        $barang_masuk->tgl_masuk = $request->tgl_masuk;
+        $barang_masuk->save();
         return redirect()->route('barangmasuk.index');
     }
 
@@ -59,8 +59,8 @@ class BarangMasukController extends Controller
      */
     public function show($id)
     {
-        $barangmasuk = barang_masuk::findOrFail($id);
-        return view('barangmasuk.show', compact('barangmasuk'));
+        $barang_masuk = barang_masuk::findOrFail($id);
+        return view('barangmasuk.show', compact('barang_masuk'));
     }
 
     /**
@@ -71,8 +71,8 @@ class BarangMasukController extends Controller
      */
     public function edit($id)
     {
-        $barangmasuk = barang_masuk::findOrFail($id);
-        return view('barangmasuk.edit', compact('barangmasuk'));
+        $barang_masuk = barang_masuk::findOrFail($id);
+        return view('barangmasuk.edit', compact('barang_masuk'));
     }
 
     /**
@@ -84,11 +84,11 @@ class BarangMasukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $barangmasuk = barang_masuk::findOrFail($id);
-        $barangmasuk->nama_barang = $request->nama_barang;
-        $barangmasuk->jumlah = $request->jumlah;
-        $barangmasuk->tgl_masuk = $request->tgl_masuk;
-        $barangmasuk->save();
+        $barang_masuk = barang_masuk::findOrFail($id);
+        $barang_masuk->nama_barang = $request->nama_barang;
+        $barang_masuk->jumlah = $request->jumlah;
+        $barang_masuk->tgl_masuk = $request->tgl_masuk;
+        $barang_masuk->save();
         return redirect()->route('barangmasuk.index');
     }
 
@@ -100,8 +100,8 @@ class BarangMasukController extends Controller
      */
     public function destroy($id)
     {
-        $barangmasuk = barang_masuk::findOrFail($id);
-        $barangmasuk->delete();
+        $barang_masuk = barang_masuk::findOrFail($id);
+        $barang_masuk->delete();
         return redirect()->route('barangmasuk.index');
     }
 }

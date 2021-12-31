@@ -71,11 +71,11 @@
                                 </div>
                                 <div class="panel-body">
                                     <label>Jumlah</label>
-                                    <input type="text" class="form-control" name="alamat" value="{{$barang_masuk->jumlah}}" disabled>
+                                    <input type="text" class="form-control" name="jumlah" value="{{$barang_masuk->jumlah}}" disabled>
                                 </div>
                                 <div class="panel-body">
                                     <label>Tanggal Masuk</label>
-                                    <input type="text" class="form-control" name="tgl_masuk" value="{{$barang_masuk->tgl_masuk}}" disabled>
+                                    <input type="date" class="form-control" name="tgl_masuk" value="{{$barang_masuk->tgl_masuk}}" disabled>
                                 </div>
                                 <a href="{{route('barangmasuk.index')}}" class="btn btn-success float-right"> Kembali</a>
                             </form>
