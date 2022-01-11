@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Barang Masuk</title>
+    <title>Barang Keluar</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -60,13 +60,19 @@
                     <div class="col-lg-10">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Tambah Data Barang Masuk
+                                Tambah Data Barang Keluar
                             </div>
-                            <form Action="{{ route('barangmasuk.store')}}" method="post" enctype="multipart/form-data">
+                            <form Action="{{ route('barangkeluar.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="panel-body">
                                     <label>Nama Barang</label>
-                                    <input type="text" class="form-control" name="nama_barang">
+                                    
+                                    <select name="id_barang" class="form-control">
+                                    @foreach($barang as $data)
+                                        <option value="{{ $data->id}}">{{ $data->nama_barang}}</option>
+                                        @endforeach
+                                    </select>
+                                    
                                 </div>
                                 <div class="panel-body">
                                     <label>Jumlah</label>
@@ -74,7 +80,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <label>Tanggal</label>
-                                    <input type="date" class="form-control" name="tgl_masuk">
+                                    <input type="date" class="form-control" name="tgl_keluar">
                                 </div>
                                 <div class="panel-body">
                                     <button type="reset" class="btn btn-warning">Reset</button>

@@ -40,7 +40,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item active">
-                <a class="nav-link" href="admin/buku">
+                <a class="nav-link" href="{{ route('barangkeluar.index') }}">
                     <i class="fas fa-fw fa-paper-plane"></i>
                     <span>Barang Keluar</span></a>
             </li>

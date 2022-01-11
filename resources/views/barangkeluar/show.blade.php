@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Penjualan Buku</title>
+    <title>Data Barang Keluar</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -51,7 +51,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Barang Masuk</h1>
+                        <h1 class="page-header">Barang Keluar</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -60,24 +60,24 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Data Barang Masuk
+                                Data Barang Keluar
                             </div>
                             <form Action="" method="POST">
                                 @csrf
                                 @method('put')
                                 <div class="panel-body">
                                     <label>Nama Barang</label>
-                                    <input type="text" class="form-control" name="nama_barang" value="{{$barang_masuk->nama_barang}}" disabled>
+                                    <input type="text" class="form-control" name="nama_barang" value="{{$barang_keluar->nama_barang}}" disabled>
                                 </div>
                                 <div class="panel-body">
                                     <label>Jumlah</label>
-                                    <input type="text" class="form-control" name="jumlah" value="{{$barang_masuk->jumlah}}" disabled>
+                                    <input type="text" class="form-control" name="jumlah" value="{{$barang_keluar->jumlah}}" disabled>
                                 </div>
                                 <div class="panel-body">
-                                    <label>Tanggal Masuk</label>
-                                    <input type="date" class="form-control" name="tgl_masuk" value="{{$barang_masuk->tgl_masuk}}" disabled>
+                                    <label>Tanggal keluar</label>
+                                    <input type="date" class="form-control" name="tgl_keluar" value="{{$barang_keluar->tgl_keluar}}" disabled>
                                 </div>
-                                <a href="{{route('barangmasuk.index')}}" class="btn btn-success float-right"> Kembali</a>
+                                <a href="{{route('barangkeluar.index')}}" class="btn btn-success float-right"> Kembali</a>
                             </form>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Barang Masuk 2021</span>
+                        <span>Copyright &copy; Barang keluar 2021</span>
                     </div>
                 </div>
             </footer>

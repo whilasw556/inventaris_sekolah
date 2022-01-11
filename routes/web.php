@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\BarangMasukController;
+use App\Http\Controllers\BarangKeluarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,9 +46,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('barangmasuk', function(){
         return view ('barangmasuk.index');
     })->middleware(['role:admin']);
+
+    Route::get('barangkeluar', function(){
+        return view ('barangkeluar.index');
+    })->middleware(['role:admin']);
 });
-Route::resource('barangmasuk', BarangMasukController::class);
 Route::resource('barang', BarangController::class);
+Route::resource('barangmasuk', BarangMasukController::class);
+Route::resource('barangkeluar', BarangKeluarController::class);
 
 // // hanya untuk pengguna
 // Route::group(['prefix' => 'pengguna', 'middleware' => ['auth', 'role:pengguna']], function(){

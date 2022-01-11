@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Barang Masuk</title>
+    <title>Barang Keluar</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -52,7 +52,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Barang Masuk</h1>
+                        <h1 class="page-header">Barang Keluar</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -61,14 +61,14 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Edit Barang Masuk
+                                Edit Barang Keluar
                             </div>
-                                   <form Action="{{ route('barangmasuk.update',$barang_masuk->id)}}" method="post" enctype="multipart/form-data">
+                                   <form Action="{{ route('barangkeluar.update',$barang_keluar->id)}}" method="post" enctype="multipart/form-data">
                                        @csrf
                                        @method('put')
                                        <div class="panel-body">
                                            <label>Nama Barang</label>
-                                           <input type="text" class="form-control" name="nama_barang" value="{{$barang_masuk->nama_barang}}">
+                                           <input type="text" class="form-control" name="nama_barang" value="{{$barang_keluar->nama_barang}}">
                                        </div>
                                 <div class="panel-body">
                                     <label>Jumlah</label>
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <label>Tanggal</label>
-                                    <input type="date" class="form-control" name="tgl_masuk">
+                                    <input type="date" class="form-control" name="tgl_keluar">
                                 </div>
                                        <div class="panel-body">
                                            <button type="reset" class="btn btn-warning">Reset</button>
