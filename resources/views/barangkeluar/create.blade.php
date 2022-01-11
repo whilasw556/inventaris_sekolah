@@ -66,13 +66,7 @@
                                 @csrf
                                 <div class="panel-body">
                                     <label>Nama Barang</label>
-                                    
-                                    <select name="id_barang" class="form-control">
-                                    @foreach($barang as $data)
-                                        <option value="{{ $data->id}}">{{ $data->nama_barang}}</option>
-                                        @endforeach
-                                    </select>
-                                    
+                                    <input type="text" class="form-control" name="nama_barang">
                                 </div>
                                 <div class="panel-body">
                                     <label>Jumlah</label>

@@ -47,33 +47,29 @@
                     <!-- Page Heading -->
 
                     <!-- Content Row -->
-                    <div id="page-wrapper">
+                    
+        <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Inventaris</h1>
+                        <h1 class="page-header">Barang Masuk</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- TABLE -->
                 <div class="row">
-                    <div class="col-lg-10">
+                    <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Tambah Data Barang Masuk
+                                Edit Barang Masuk
                             </div>
-                            <form Action="{{ route('barangmasuk.store')}}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <div class="panel-body">
-                                    <label>Nama Barang</label>
-                                    
-                                    <select name="id_barang" class="form-control">
-                                    @foreach($barang as $data)
-                                        <option value="{{ $data->id}}">{{ $data->nama_barang}}</option>
-                                        @endforeach
-                                    </select>
-                                    
-                                </div>
+                                   <form Action="{{ route('barangmasuk.update',$barang_masuk->id)}}" method="post" enctype="multipart/form-data">
+                                       @csrf
+                                       @method('put')
+                                       <div class="panel-body">
+                                           <label>Nama Barang</label>
+                                           <input type="text" class="form-control" name="nama_barang" value="{{$barang_masuk->nama_barang}}">
+                                       </div>
                                 <div class="panel-body">
                                     <label>Jumlah</label>
                                     <input type="text" class="form-control" name="jumlah">
@@ -82,13 +78,15 @@
                                     <label>Tanggal</label>
                                     <input type="date" class="form-control" name="tgl_masuk">
                                 </div>
-                                <div class="panel-body">
-                                    <button type="reset" class="btn btn-warning">Reset</button>
-                                    <button type="submit" class="btn btn-primary">Tambah</button>
-                                </div>
+                                       <div class="panel-body">
+                                           <button type="reset" class="btn btn-warning">Reset</button>
+                                           <button type="submit" class="btn btn-primary">Ubah</button>
+                                       </div>
+
                             </form>
                         </div>
                     </div>
+                </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->

@@ -14,7 +14,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        $barang = barang::All();
+        return view('barang.index', compact('barang'));
     }
 
     /**

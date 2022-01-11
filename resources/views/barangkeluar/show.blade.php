@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Barang Masuk</title>
+    <title>Penjualan Buku</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -55,68 +55,32 @@
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.row -->
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Data Barang Masuk
-                            <a href="{{ route('barangmasuk.create')}}" class="btn btn-primary float-right">Tambah Barang Masuk</a>
-
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive table-bordered">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Barang Masuk</th>
-                                            <th>Jumlah</th>
-                                            <th>Tanggal Masuk</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php $no=1; @endphp
-                                        @foreach($barang_masuk as $data)
-                                        <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ $data->barang->nama_barang}}</td>
-                                            <td>{{ $data->jumlah }}</td>
-                                            <td>{{ $data->tgl_masuk }}</td>
-                                            <td>
-                                        <form action="{{route('barangmasuk.destroy' ,$data->id)}}" method="post">
-                                            @method('delete')
-                                            @csrf
-
-
-                                            <a href="{{route('barangmasuk.edit', $data->id)}}" class="btn btn-success float-right">Ubah</a>
-                                            <a href="{{route('barangmasuk.show', $data->id)}}" class="btn btn-warning float-right">Tampilkan</a>
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                <!-- TABLE -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Data Barang Masuk
                             </div>
-                            <!-- /.table-responsive -->
+                            <form Action="" method="POST">
+                                @csrf
+                                @method('put')
+                                <div class="panel-body">
+                                    <label>Nama Barang</label>
+                                    <input type="text" class="form-control" name="nama_barang" value="{{$barang_masuk->nama_barang}}" disabled>
+                                </div>
+                                <div class="panel-body">
+                                    <label>Jumlah</label>
+                                    <input type="text" class="form-control" name="jumlah" value="{{$barang_masuk->jumlah}}" disabled>
+                                </div>
+                                <div class="panel-body">
+                                    <label>Tanggal Masuk</label>
+                                    <input type="date" class="form-control" name="tgl_masuk" value="{{$barang_masuk->tgl_masuk}}" disabled>
+                                </div>
+                                <a href="{{route('barangmasuk.index')}}" class="btn btn-success float-right"> Kembali</a>
+                            </form>
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-6 -->
-            </div>
-
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /#page-wrapper -->
-
-    </div>
-
                 </div>
                 <!-- /.container-fluid -->
 
@@ -140,7 +104,11 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
     </a>
+
+    <!-- Logout Modal-->
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>

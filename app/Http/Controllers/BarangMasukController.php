@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\barang_masuk;
+use App\Models\barang;
 use Illuminate\Http\Request;
 
 class BarangMasukController extends Controller
@@ -25,8 +26,8 @@ class BarangMasukController extends Controller
      */
     public function create()
     {
-        $barang_masuk = barang_masuk::all();
-        return view('barangmasuk.create', compact('barang_masuk'));
+        $barang = barang::All();
+        return view('barangmasuk.create',compact('barang'));
     }
 
     /**
@@ -37,17 +38,18 @@ class BarangMasukController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nama_barang' => 'required',
-            'jumlah' => 'required',
-            'tgl_masuk' => 'required',
-        ]);
+        
 
         $barang_masuk = new barang_masuk;
-        $barang_masuk->nama_barang = $request->nama_barang;
+        $barang_masuk->id_barang = $request->id_barang;
         $barang_masuk->jumlah = $request->jumlah;
         $barang_masuk->tgl_masuk = $request->tgl_masuk;
         $barang_masuk->save();
+
+        $barang = barang::findOrFail($request->id_barang);
+        $barang->stok += $request->jumlah;
+        $barang->save();
+
         return redirect()->route('barangmasuk.index');
     }
 
@@ -57,7 +59,7 @@ class BarangMasukController extends Controller
      * @param  \App\Models\barang_masuk  $barang_masuk
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(barang_masuk $barang_masuk)
     {
         $barang_masuk = barang_masuk::findOrFail($id);
         return view('barangmasuk.show', compact('barang_masuk'));
@@ -69,7 +71,7 @@ class BarangMasukController extends Controller
      * @param  \App\Models\barang_masuk  $barang_masuk
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(barang_masuk $barang_masuk)
     {
         $barang_masuk = barang_masuk::findOrFail($id);
         return view('barangmasuk.edit', compact('barang_masuk'));
@@ -82,13 +84,18 @@ class BarangMasukController extends Controller
      * @param  \App\Models\barang_masuk  $barang_masuk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, barang_masuk $barang_masuk)
     {
-        $barang_masuk = barang_masuk::findOrFail($id);
-        $barang_masuk->nama_barang = $request->nama_barang;
+        $barang_masuk = new barang_masuk;
+        $barang_masuk->id_barang = $request->id_barang;
         $barang_masuk->jumlah = $request->jumlah;
         $barang_masuk->tgl_masuk = $request->tgl_masuk;
         $barang_masuk->save();
+
+        $barang = barang::findOrFail($request->id_barang);
+        $barang->stok += $request->jumlah;
+        $barang->save();
+
         return redirect()->route('barangmasuk.index');
     }
 
@@ -98,7 +105,7 @@ class BarangMasukController extends Controller
      * @param  \App\Models\barang_masuk  $barang_masuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(barang_masuk $barang_masuk)
     {
         $barang_masuk = barang_masuk::findOrFail($id);
         $barang_masuk->delete();

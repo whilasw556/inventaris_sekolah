@@ -7,14 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class barang_masuk extends Model
 {
-	use HasFactory;
-    // memberikan akses data apa saja yang bisa dilihat
-    protected $visible = ['barangmasuk'];
-    // memberikan akses data apa saja yang bisa diisi
-    protected $fillable = ['barangmasuk'];
-    // mencatat waktu pembuatan dan update data otomatis
-    public $timestamp = true;
-  	# Relasi One-to-Many nanti disini...
+    use HasFactory;
 
-	# Relasi Many-to-Many nanti disini...
+    public function barang(){
+       return $this->belongsTo('App\Models\barang','id_barang');
+    }
 }

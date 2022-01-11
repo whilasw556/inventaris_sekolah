@@ -81,7 +81,7 @@
                                         @foreach($barang_masuk as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->barang->nama_barang}}</td>
+                                            <td>{{ $data->nama_barang}}</td>
                                             <td>{{ $data->jumlah }}</td>
                                             <td>{{ $data->tgl_masuk }}</td>
                                             <td>
